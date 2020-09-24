@@ -1,0 +1,48 @@
+.profile {
+  width: 240px;
+  height: 100%;
+  border: 1px solid rgb(236, 231, 231);
+  border-radius: 5%;
+  cursor: pointer;
+  margin-bottom: 50px;
+}
+.profile:hover {
+  box-shadow: 0px 0px 18px -4px rgba(135, 147, 194, 1);
+  border: 1px solid grey;
+}
+.avatar {
+  width: 70%;
+  border-radius: 50%;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+.description {
+  width: 75%;
+  margin: 0 auto;
+  text-align: center;
+}
+.name {
+  font-weight: 900;
+}
+.stats {
+  border-top: 1px solid grey;
+  width: 100%;
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  padding-left: 0;
+  background-color: rgb(174, 173, 204);
+  border-bottom-left-radius: 13px;
+  border-bottom-right-radius: 13px;
+}
+.statsItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  margin: 0;
+}
+.statsItem:nth-child(-n + 2) {
+  border-right: 1px solid grey;
+}
