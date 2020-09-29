@@ -1,5 +1,4 @@
 import React from 'react';
-import statisticalData from '../../statistical-data.json';
 import styles from './statistics.module.css';
 import PropTypes from 'prop-types';
 
@@ -16,29 +15,31 @@ function Statistics({ title, stats }) {
       <h2 className={styles.title}>{title}</h2>
 
       <ul className={styles.statList}>
-        {statisticalData.map(stats => (
-          <li
-            style={{ backgroundColor: randColor() }}
-            className={styles.item}
-            key={stats.id}
-          >
-            <span className="label">{stats.label}</span>
-            <span className="percentage">{stats.percentage}%</span>
-          </li>
+        {stats.map(({ ...props }) => (
+          <StatisticItem {...props} />
         ))}
       </ul>
     </section>
   );
 }
-
+const StatisticItem = ({ id, label, percentage }) => {
+  return (
+    <li
+      style={{ backgroundColor: randColor() }}
+      className={styles.item}
+      key={id}
+    >
+      <span className="label">{label}</span>
+      <span className="percentage">{percentage}%</span>
+    </li>
+  );
+};
 Statistics.propTypes = {
   title: PropTypes.string.isRequired,
-  stats: PropTypes.arrayOf(
-    PropTypes.exact({
-      percentage: PropTypes.number.isRequired,
-      label: PropTypes.string.isRequired,
-      id: PropTypes.string.isRequired,
-    }),
-  ).isRequired,
+};
+StatisticItem.propTypes = {
+  percentage: PropTypes.number.isRequired,
+  label: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };
 export default Statistics;
